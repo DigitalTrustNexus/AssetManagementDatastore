@@ -31,8 +31,7 @@ CREATE TABLE public.users
   email varchar(30),
   companyName varchar(30),
   created_at date NOT NULL,
-  wallet varchar(100),
-  CONSTRAINT "organizationId" PRIMARY KEY (id)
+  CONSTRAINT "userId" PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
@@ -46,13 +45,15 @@ ALTER TABLE public.users
 CREATE TABLE public.assets
 (
   id integer NOT NULL DEFAULT nextval('assets_id_seq'::regclass),
+  uuid varchar(64),
   assetName varchar(30) NOT NULL,
   created_at date,
-  description text,
+  dm_escription text,
+  location_description text,
   owner_id integer references users(id),
-  d1 decimal,
-  d2 decimal,
-  d3 decimal,
+  dimension1 decimal,
+  dimension2 decimal,
+  dimension3 decimal,
   location varchar(20),
   CONSTRAINT "assetId" PRIMARY KEY (id)
 )
@@ -139,4 +140,4 @@ CREATE TABLE public.queue
   d3 decimal,
   orderNumber varchar(20),
   location varchar(20)
-)
+);
