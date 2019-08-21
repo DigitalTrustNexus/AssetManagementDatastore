@@ -46,13 +46,14 @@ ALTER TABLE public.users
 CREATE TABLE public.assets
 (
   id integer NOT NULL DEFAULT nextval('assets_id_seq'::regclass),
-  asset_uuid UUID NOT NULL,
   assetName varchar(30) NOT NULL,
   created_at date,
   description text,
   owner_id integer references users(id),
-  user_id integer references users(id),
-  wallet varchar(100),
+  d1 decimal,
+  d2 decimal,
+  d3 decimal,
+  location varchar(20),
   CONSTRAINT "assetId" PRIMARY KEY (id)
 )
 WITH (
@@ -132,5 +133,9 @@ CREATE TABLE public.queue
   status varchar(200),
   percentComplete integer,
   sku varchar(100),
-  price decimal
+  price decimal,
+  d1 decimal,
+  d2 decimal,
+  d3 decimal,
+  location varchar(20)
 )
