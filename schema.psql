@@ -137,5 +137,6 @@ CREATE TABLE public.queue
   d1 decimal,
   d2 decimal,
   d3 decimal,
+  orderNumber varchar(20),
   location varchar(20)
 )
