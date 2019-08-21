@@ -48,7 +48,7 @@ CREATE TABLE public.assets
   uuid varchar(64),
   assetName varchar(30) NOT NULL,
   created_at date,
-  dm_escription text,
+  am_escription text,
   location_description text,
   owner_id integer references users(id),
   dimension1 decimal,
