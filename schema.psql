@@ -135,9 +135,9 @@ CREATE TABLE public.queue
   percentComplete integer,
   sku varchar(100),
   price decimal,
-  d1 decimal,
-  d2 decimal,
-  d3 decimal,
+  dimension1 decimal,
+  dimension2 decimal,
+  dimension3 decimal,
   orderNumber varchar(20),
   location varchar(20),
   CONSTRAINT queuekey PRIMARY KEY (id)
