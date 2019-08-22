@@ -128,7 +128,7 @@ ALTER TABLE public.marketCredential
 
 CREATE TABLE public.queue
 (
-  priorityNum integer NOT NULL DEFAULT nextval('queue_id_seq'::regclass),
+  id integer NOT NULL DEFAULT nextval('queue_id_seq'::regclass),
   name varchar(30),
   assetID integer,
   status varchar(200),
@@ -139,5 +139,6 @@ CREATE TABLE public.queue
   d2 decimal,
   d3 decimal,
   orderNumber varchar(20),
-  location varchar(20)
+  location varchar(20),
+  CONSTRAINT queuekey PRIMARY KEY (id)
 );
