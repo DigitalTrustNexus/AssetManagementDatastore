@@ -48,7 +48,7 @@ CREATE TABLE public.assets
   uuid varchar(64),
   assetName varchar(30) NOT NULL,
   created_at date,
-  am_escription text,
+  am_description text,
   location_description text,
   owner_id integer references users(id),
   dimension1 decimal,
@@ -129,8 +129,6 @@ ALTER TABLE public.marketCredential
 CREATE TABLE public.queue
 (
   id integer NOT NULL DEFAULT nextval('queue_id_seq'::regclass),
-  name varchar(30),
-  assetID integer,
   status varchar(200),
   percentComplete integer,
   sku varchar(100),
