@@ -55,6 +55,7 @@ CREATE TABLE public.assets
   dimension2 decimal,
   dimension3 decimal,
   location varchar(20),
+  wallet varchar(100),
   CONSTRAINT "assetId" PRIMARY KEY (id)
 )
 WITH (
