@@ -1,0 +1,4 @@
+psql -U postgres --command "CREATE USER dbuser WITH SUPERUSER PASSWORD 'assetdbuserpass';"
+createdb -U postgres -O assetdbuser  assetdbdatabase
+psql -U postgres -w -d assetdbdatabase < /tmp/schema.psql
+psql -U postgres -w -d assetdbdatabase < /tmp/init.psql

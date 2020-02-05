@@ -30,11 +30,9 @@ USER postgres
 
 ADD ./schema.psql /tmp/
 ADD ./init.psql /tmp/
+ADD ./createDB.sh /tmp/
 RUN    /etc/init.d/postgresql start &&\
-    psql --command "CREATE USER PasswordMrg.txt WITH SUPERUSER PASSWORD 'PasswordMrg.txt';" &&\
-    createdb -O nsswordMrg.txt PasswordMrg.txt &&\
-    psql -U postgres -d PasswordMrg.txt  < /tmp/schema.psql &&\
-    psql -U postgres -d PasswordMrg.txt  < /tmp/init.psql
+	/tmp/createDB.sh
 
 # Adjust PostgreSQL configuration so that remote connections to the
 # database are possible.
@@ -51,8 +49,3 @@ VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 
 # Set the default command to run when starting the container
 CMD ["/usr/lib/postgresql/9.3/bin/postgres", "-D", "/var/lib/postgresql/9.3/main", "-c", "config_file=/etc/postgresql/9.3/main/postgresql.conf"]
-
-# Build:  docker build -t eg_postgresql .
-# Run:    docker run --rm -P --name pg_test eg_postgresql
-# Link    docker run --rm -t -i --link pg_test:pg eg_postgresql bash
-# Use:    psql -h $PG_PORT_5432_TCP_ADDR -p $PG_PORT_5432_TCP_PORT -d CheckPasswordMrg.txt -U CheckPasswordMrg.txt --passwordn --password

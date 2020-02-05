@@ -1,0 +1,5 @@
+INSERT INTO public.users(id, username, firstname, lastname, email, companyname, created_at) VALUES (1, 'admin', 'userfirstname','usersurname','email','company',current_timestamp);
+
+INSERT INTO public.assets(id, uuid, assetname, created_at, am_description, location_description, owner_id, dimension1, dimension2, dimension3, location, wallet) VALUES(id,'uuidofasset', 'assetname', current_timestamp, 'am description', 'location description', ownerid , dimension1, dimension2, dimension3, 'locaion', 'walletAddress');
+
+INSERT INTO public.queue(id, status, percentcomplete, sku, price, dimension1, dimension2, dimension3, ordernumber, location) VALUES (id, 'queued', 0, 'sku', price, dimension1,dimension2,dimension3,'ordernumber', 'location');
